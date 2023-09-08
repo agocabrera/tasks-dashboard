@@ -1,0 +1,125 @@
+body {
+  background-color: #0F0F0F;
+  color: #FFFFFF;
+  margin: 0px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.main {
+  display: grid;
+  grid-template-areas:
+    'sidebar title'
+    'sidebar main';
+  grid-template-rows: min-content 1fr;
+  grid-template-columns: min-content 1fr;
+}
+
+.title {
+  grid-area: title;
+  height: fit-content;
+  margin: 30px auto 0px auto;
+}
+
+.sidebar {
+  grid-area: sidebar;
+  width: 50px;
+  background-color: #1d1d1d;
+  padding: 15px;
+  height: 100vh;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0px;
+  margin: 0px;
+}
+
+.sidebar li {
+  margin-bottom: 10px;
+}
+
+#new-tl-btn {
+  width: 100%;
+  padding: 0px;
+  aspect-ratio: 1 / 1;
+  border: 0px solid black;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+#new-tl-btn:hover {
+  background-color: rgb(67, 158, 75);
+}
+
+#new-tl-btn span {
+  font-size: 50px;
+  font-weight: 900;
+}
+
+.task-list-container {
+  grid-area: main;
+  margin: 30px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 20px;
+  grid-auto-rows: minmax(100px, auto);
+}
+
+.task-list {
+  display: flex;
+  flex-direction: column;
+  background-color: #1d1d1d;
+  height: fit-content;
+  min-height: 300px;
+  border: 0px solid black;
+  border-radius: 10px;
+
+}
+
+.task-list-title {
+  font-size: 150%;
+  margin: 0px 0px 10px 0px;
+  padding: 20px 20px 0px 20px;
+}
+
+.task-list-body {
+  padding: 0px 20px 20px 20px;
+}
+
+.task-list-footer {
+  margin-top: auto;
+  border: 0px solid black;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  width: 100%;
+  height: 30px;
+}
+
+.new-task-btn {
+  background-color: inherit;
+  border: 0px solid black;
+  height: 100%;
+  float: right;
+  font-size: 100%;
+  color: inherit;
+  padding: 0px 10px 10px 10px;
+  cursor: pointer;
+}
+
+.new-task-btn:hover {
+  color: rgb(67, 158, 75);
+}
+
+.new-task-btn span {
+  font-size: 100%;
+  height: 100%;
+  aspect-ratio: 1 / 1;
+}
+
+.task-card {
+  background-color: rgb(59, 59, 59);
+  margin-bottom: 5px;
+  padding: 10px;
+  border: 0px solid black;
+  border-radius: 5px;
+}
