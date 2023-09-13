@@ -40,7 +40,7 @@ body {
   width: 80px;
   background-color: var(--color-a);
   padding: 15px;
-  height: 100vh;
+  min-height: 100vh;
   overflow: hidden;
 }
 
@@ -106,6 +106,7 @@ body {
 
 .tl-title-wrapper {
   display: flex;
+  gap: 5px;
   align-items: center;
   margin-bottom: 15px;
 }
@@ -115,22 +116,39 @@ body {
   font-size: 150%;
 }
 
-.edit-tl-title {
+.tl-edit-title {
   align-self: start;
 }
 
-.edit-tl-title:hover {
+.tl-edit-title:hover {
+  color: var(--color-hover);
+  cursor: pointer;
+}
+
+.tl-delete {
+  align-self: start;
+}
+
+.tl-delete:hover {
   color: var(--color-hover);
   cursor: pointer;
 }
 
 .tl-title-input {
   flex: 1;
-  margin-right: 15px;
+  width: 100%;
   border: none;
   height: 27px;
   font-family: inherit;
   font-size: 150%;
+}
+
+.task-input {
+  flex: 1;
+  width: 100%;
+  border: none;
+  height: 24px;
+  font-family: inherit;
 }
 
 .task-list-body {
@@ -166,11 +184,35 @@ body {
 }
 
 .task-card {
+  display: flex;
+  gap: 5px;
   background-color: var(--color-b);
   margin-bottom: 5px;
   padding: 10px;
-  border: 0px solid black;
+  border: none;
   border-radius: 5px;
+}
+
+.task-card-body {
+  flex: 1;
+}
+
+.task-edit {
+  align-self: start;
+}
+
+.task-edit:hover {
+  color: var(--color-hover);
+  cursor: pointer;
+}
+
+.task-delete {
+  align-self: start;
+}
+
+.task-delete:hover {
+  color: var(--color-hover);
+  cursor: pointer;
 }
 
 /* Form modal */

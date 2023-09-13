@@ -5,53 +5,13 @@ import FormModal from "./FormModal";
 
 function App() {
 
-  const [taskLists, setTaskLists] = useState([
-    {
-      title: "Task list 1 title",
-      cards: [
-        {
-          body: "Task card 1 body"
-        },
-        {
-          body: "Task card 2 body"
-        },
-        {
-          body: "Task card 3 body"
-        },
-      ]
-    },
-    {
-      title: "Task list 2 title",
-      cards: [
-        {
-          body: "Task card 4 body"
-        },
-        {
-          body: "Task card 5 body"
-        },
-        {
-          body: "Task card 6 body"
-        },
-      ]
-    }
-  ]);
+  const [taskLists, setTaskLists] = useState([]);
 
   function addTaskList() {
     setTaskLists((previous) => {
       return [...previous, {
-        title: "Task list 1 title",
-        titleEditing: false,
-        cards: [
-          {
-            body: "Task card 1 body"
-          },
-          {
-            body: "Task card 2 body"
-          },
-          {
-            body: "Task card 3 body"
-          },
-        ]
+        title: `Task list ${previous.length + 1}`,
+        titleEditing: false
       }]
     });
   }
@@ -59,7 +19,6 @@ function App() {
   function toggleEditTitle(id) {
     setTaskLists((previous) => {
       const task = previous[id];
-      console.log("toggleEditTitle task", task);
       task.titleEditing = !task.titleEditing;
       return [...previous];
     });
@@ -72,6 +31,13 @@ function App() {
     });
   }
 
+  function deleteTaskList(id) {
+    setTaskLists((previous) => {
+      previous.splice(id, 1);
+      return [...previous];
+    });
+  }
+
   return (
     <div className="main">
       <Sidebar addTaskList={addTaskList} />
@@ -79,16 +45,14 @@ function App() {
       <h1 className="title">Tasks Dashboard</h1>
       <div className="task-list-container">
         {taskLists.map((taskList, index) => {
-          return (
-            <TaskList
-              id={index}
-              key={index}
-              title={taskList.title}
-              titleEditing={taskList.titleEditing}
-              titleToggleEditing={toggleEditTitle}
-              titleUpdate={updateTitle}
-              cards={taskList.cards} />
-          )
+          return (<TaskList
+            id={index}
+            key={index}
+            title={taskList.title}
+            titleEditing={taskList.titleEditing}
+            titleToggleEditing={toggleEditTitle}
+            titleUpdate={updateTitle}
+            taskListDelete={deleteTaskList} />)
         })}
       </div>
     </div>
