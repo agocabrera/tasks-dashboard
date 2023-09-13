@@ -1,6 +1,6 @@
 import React from "react"
 
-function Sidebar() {
+function Sidebar(props) {
 
     const [darkTheme, setDarkTheme] = React.useState(true);
 
@@ -13,12 +13,17 @@ function Sidebar() {
             event.target.innerText = newTheme === true ? "light_mode" : "dark_mode";
             root.style.setProperty("--color-text", newTheme === true ? "#FFFFFF" : "#000000");
             root.style.setProperty("--color-background", newTheme === true ? "#0F0F0F" : "#FFFFFF");
-            root.style.setProperty("--color-a", newTheme === true ? "#1D1D1D" : "#C0C0C0");
-            root.style.setProperty("--color-c", newTheme === true ? "#3B3B3B" : "#E6E6E6");
+            root.style.setProperty("--color-a", newTheme === true ? "#1D1D1D" : "#D1D1D1");
+            root.style.setProperty("--color-b", newTheme === true ? "#3B3B3B" : "#C2C2C2");
 
             return newTheme;
         });
 
+    }
+
+    function openRegisterModal() {
+        const modal = document.querySelector("#form-modal");
+        modal.style.display = "block";
     }
 
     return (
@@ -26,9 +31,19 @@ function Sidebar() {
             <ul>
                 <li>
                     <button
+                        id="register-btn"
+                        className="material-symbols-outlined"
+                        title="Register"
+                        onClick={openRegisterModal}>
+                        key
+                    </button>
+                </li>
+                <li>
+                    <button
                         id="new-tl-btn"
                         className="material-symbols-outlined"
-                        title="New task list">
+                        title="New task list"
+                        onClick={props.addTaskList}>
                         add
                     </button>
                 </li>
